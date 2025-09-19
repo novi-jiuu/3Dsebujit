@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>WebAR Markerless</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <style>
+      body { margin: 0; overflow: hidden; }
+      #ui {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+      }
+      button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 6px;
+        background: #4caf50;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="rumah" src="assets/rumah_adat.glb"></a-asset-item>
+        <audio id="bg-music" src="assets/dayak.mp3" preload="auto"></audio>
+      </a-assets>
+
+      <!-- Animasi GLB otomatis dijalankan dengan animation-mixer -->
+      <a-entity gltf-model="#rumah" 
+                position="0 0 -3" 
+                scale="0.5 0.5 0.5" 
+                rotation="0 30 0"
+                animation-mixer>
+      </a-entity>
+
+      <a-camera position="0 1.6 0"></a-camera>
+    </a-scene>
+
+    <div id="ui">
+      <button onclick="toggleMusic()">Play/Pause Music</button>
+      <button onclick="window.location.href='index.html'">⬅ Kembali</button>
+    </div>
+
+    <script>
+      const music = document.getElementById("bg-music");
+      let playing = false;
+
+      function toggleMusic() {
+        if (!playing) {
+          music.play();
+          playing = true;
+        } else {
+          music.pause();
+          playing = false;
+        }
+      }
+    </script>
+  </body>
+</html>

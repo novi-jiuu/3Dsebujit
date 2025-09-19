@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>WebAR Kearifan Lokal</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0; padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #0099cc, #66ccff);
+        color: white;
+      }
+      .container {
+        text-align: center;
+      }
+      h1 {
+        margin-bottom: 30px;
+      }
+      button {
+        padding: 15px 25px;
+        margin: 10px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .marker {
+        background: #ff9800;
+        color: white;
+      }
+      .markerless {
+        background: #4caf50;
+        color: white;
+      }
+      button:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>✨ WebAR Kearifan Lokal ✨</h1>
+      <p>Pilih mode untuk melihat AR:</p>
+      <button class="marker" onclick="location.href='marker.html'">📷 Mode Marker (Scan QR)</button>
+      <button class="markerless" onclick="location.href='markerless.html'">🌍 Mode Markerless</button>
+    </div>
+  </body>
+</html>
